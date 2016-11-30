@@ -42,7 +42,7 @@ def group_by_subreddit(data):
                                 }
                             )
 
-    return grouped
+    return dict(grouped)
 
 
 def main():
