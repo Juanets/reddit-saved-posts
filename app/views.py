@@ -1,11 +1,13 @@
 from app.reddit import login, get_posts, group_by_subreddit
+from flask import render_template
 from app import app
 
 
 @app.route('/')
 def index():
 	login()
-	return str(group_by_subreddit(get_posts()))
+	saved = group_by_subreddit(get_posts())
+	return render_template('index.html', saved=saved)
 
 
 # 404

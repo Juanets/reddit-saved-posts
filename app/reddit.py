@@ -24,7 +24,8 @@ def get_posts():
         data.append({
                 'link': post.permalink,
                 'title': post.title,
-                'sub': subreddit
+                'sub': subreddit,
+                'score': post.score
         })
 
     return data
@@ -37,7 +38,8 @@ def group_by_subreddit(data):
         grouped[post['sub']].append(
                                 {
                                     'link': post['link'],
-                                    'title': post['title']
+                                    'title': post['title'],
+                                    'score': post['score']
                                 }
                             )
 
