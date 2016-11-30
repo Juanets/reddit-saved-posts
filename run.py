@@ -14,7 +14,7 @@ def login():
 def get_posts():
     """Get saved posts. Returns list of dicts (posts)."""
     data = []
-    for post in r.user.get_saved(limit=10, time='all'):
+    for post in r.user.get_saved(limit=None, time='all'):
         if not hasattr(post, 'title'):
             post.title = post.link_title
         try:
