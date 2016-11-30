@@ -22,8 +22,8 @@ def get_posts():
             subreddit = "None"
 
         data.append({
-                'link': post.permalink.encode('utf-8'),
-                'title': post.title.encode('utf-8'),
+                'link': post.permalink,
+                'title': post.title,
                 'sub': subreddit
         })
 
