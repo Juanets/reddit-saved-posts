@@ -1,5 +1,6 @@
 import praw
 import pprint
+from auth import *
 from collections import defaultdict
 
 r = praw.Reddit(user_agent='get and organize your saved posts')
@@ -7,9 +8,7 @@ r = praw.Reddit(user_agent='get and organize your saved posts')
 
 def login():
     """Login via username and password (deprecated)."""
-    u = 'masterdada'
-    p = 'ee8E1kRw7cZFZQ4OAgMn1FeXYGafnVZd'
-    r.login(u, p, disable_warning=True)
+    r.login(username, password, disable_warning=True)
 
 
 def get_posts():
