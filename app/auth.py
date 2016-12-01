@@ -1,2 +1,3 @@
-username = "masterdada"
-password = "ee8E1kRw7cZFZQ4OAgMn1FeXYGafnVZd"
+client_id = 'H7qjzUMWtSPEEg'
+client_secret = 'o64q8ydaLq4R7YkF-oXcGGYntvA'
+redirect_uri = 'http://127.0.0.1:5000/oauth_callback'
