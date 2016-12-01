@@ -16,4 +16,4 @@ done!
 
 ## todo
 * improve design
-* OAuth authentication (tokens)
+* user sessions
