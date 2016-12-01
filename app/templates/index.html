@@ -1,32 +1,42 @@
 <html>
     <head>
-        <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.blue_grey-red.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+        <link rel="stylesheet" href="/static/css/custom.css">
     </head>
-    <body>
-        <div class="mdl-grid">
-            {% if saved %}
-                {% for sub in saved.items() %}
-                    <div class="mdl-cell mdl-cell--4-col ">
-                        {{ sub[0] }}
-                        <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable">
-                            <tbody>
-                                {% for post in sub[1] %}
-                                    <tr>
-                                        <td class="mdl-data-table__cell--non-numeric"><a href="{{ post['link'] }}">{{ post['title'] }}</a></td>
-                                        <td>{{ post['score'] }}</td>
-                                    </tr>  
-                                {% endfor %}                             
-                            </tbody>
-                        </table>
-                    </div>
-                {% endfor %}
-            {% else %}
-                <a href="{{ url_for('authentication') }}">
-                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
-                        Grant Access
-                    </button>
-                </a>
-            {% endif %}            
+    <body class="">
+        <div class="row container">
+            <div class="col s12 l6 offset-l3">
+                {% if saved %}
+                    <ul class="collapsible" data-collapsible="accordion">
+                        {% for sub in saved.items() %}
+                            <li>
+                                <div class="collapsible-header flow-text red white-text">{{ sub[0] }}</div>
+                                <div class="collapsible-body">
+                                    <table>   
+                                        <tbody>                                                
+                                            {% for post in sub[1] %}
+                                                <tr class="valign-wrapper">
+                                                    <td><a href="{{ post['link'] }}">{{ post['title'] }}</a></td>
+                                                    <td class="chip valign">{{ post['score'] }}</td>
+                                                </tr>  
+                                            {% endfor %} 
+                                        </tbody>   
+                                    </table>   
+                                </div>                    
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <a href="{{ url_for('authentication') }}">
+                        <button class="waves-effect waves-light btn">
+                            Grant Access
+                        </button>
+                    </a>
+                {% endif %}                   
+            </div>
         </div>
+
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
     </body>
 </html>
