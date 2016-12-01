@@ -4,21 +4,29 @@
     </head>
     <body>
         <div class="mdl-grid">
-            {% for sub in saved.items() %}
-                <div class="mdl-cell mdl-cell--4-col ">
-                    {{ sub[0] }}
-                    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable">
-                        <tbody>
-                            {% for post in sub[1] %}
-                                <tr>
-                                    <td class="mdl-data-table__cell--non-numeric"><a href="{{ post['link'] }}">{{ post['title'] }}</a></td>
-                                    <td>{{ post['score'] }}</td>
-                                </tr>  
-                            {% endfor %}                             
-                        </tbody>
-                    </table>
-                </div>
-            {% endfor %}
+            {% if saved %}
+                {% for sub in saved.items() %}
+                    <div class="mdl-cell mdl-cell--4-col ">
+                        {{ sub[0] }}
+                        <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable">
+                            <tbody>
+                                {% for post in sub[1] %}
+                                    <tr>
+                                        <td class="mdl-data-table__cell--non-numeric"><a href="{{ post['link'] }}">{{ post['title'] }}</a></td>
+                                        <td>{{ post['score'] }}</td>
+                                    </tr>  
+                                {% endfor %}                             
+                            </tbody>
+                        </table>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <a href="{{ url_for('authentication') }}">
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+                        Grant Access
+                    </button>
+                </a>
+            {% endif %}            
         </div>
     </body>
 </html>
