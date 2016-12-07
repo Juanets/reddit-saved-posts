@@ -3,18 +3,18 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
         <link rel="stylesheet" href="/static/css/custom.css">
     </head>
-    <body class="">
+    <body class="blue-grey darken-3">
         <div class="row container">
             <div class="col s12 l6 offset-l3">
                 {% if saved %}
                     <ul class="collapsible" data-collapsible="accordion">
                         {% for sub in saved.items() %}
                             <li>
-                                <div class="collapsible-header flow-text red white-text">{{ sub[0] }}</div>
+                                <div class="collapsible-header flow-text cyan blue-grey-text text-darken-3">{{ sub[0] }}</div>
                                 <div class="collapsible-body">
                                     <table>   
-                                        <tbody>                                                
-                                            {% for post in sub[1] %}
+                                        <tbody class="white cyan-text">                                                
+                                            {% for post in sub[1]|sort(True, attribute='score') %}
                                                 <tr class="valign-wrapper">
                                                     <td><a href="{{ post['link'] }}">{{ post['title'] }}</a></td>
                                                     <td class="chip valign">{{ post['score'] }}</td>
