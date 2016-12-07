@@ -4,3 +4,7 @@
 .collapsible-header {
     border-bottom: none !important;
 }
+
+.collapsible-body {
+    border-bottom: none !important;
+}
