@@ -51,7 +51,7 @@ def group_by_subreddit(data):
                                 {
                                     'link': post['link'],
                                     'title': post['title'],
-                                    'score': post['score']
+                                    'score': int(post['score'])
                                 }
                             )
 
